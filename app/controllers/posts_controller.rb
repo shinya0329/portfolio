@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+
   def new
     @post = Post.new
   end
@@ -19,12 +19,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-  end  
-  
+  end
+
   private
-  
+
   def post_params
     params.require(:post).permit(:shop_name, :image, :caption, :image_id, :category)
   end
-  
+
 end
