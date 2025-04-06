@@ -4,4 +4,6 @@ class User < ApplicationRecord
   # deviseで使用する機能の記述
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  has_many :posts, dependent: :destroy 
 end
