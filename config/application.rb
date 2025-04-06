@@ -1,22 +1,23 @@
-require_relative "boot"
+# config/application.rb
 
-require "rails/all"
+require_relative 'boot'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+require "rails"
+# 必要なRailsフレームワークを追加
+require "active_model/railtie"
+require "active_record/railtie"
+require "active_storage/engine"
+require "action_controller/railtie"
+require "action_view/railtie"
+require "action_mailer/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+
+# BundlerによるGemの読み込み
 Bundler.require(*Rails.groups)
 
 module Portfolio
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
   end
 end
