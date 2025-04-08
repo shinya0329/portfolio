@@ -1,6 +1,16 @@
 <div>
   <h3><%= @user.name %></h3>
-  <%= image_tag('about_photo1.jpg') %>
+  
+  <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image, size: "100x100" %>
+  <% else %>
+    <%= image_tag 'about_photo1.jpg', size: "100x100" %>
+  <% end %>
+
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+
 </div>
 
 <% @posts.each do |post| %>
@@ -14,7 +24,13 @@
     <% end %>
   <% end %>
 
-  <p>投稿ユーザー画像：<%= image_tag('about_photo1.jpg') %></p>
+  <p>投稿ユーザー画像：
+  <% if post_image.user.profile_image.attached? %>
+    <%= image_tag post_image.user.profile_image, size: "60x60" %>
+  <% else %>
+    <%= image_tag 'about_photo1.jpg', size: "60x60" %>
+  <% end %>
+  </p>
   <p>ショップ名：<%= post.shop_name %></p>
   <p>説明：<%= post.caption %></p>
   <p>ユーザーネーム：<%= post.user.name %></p>
