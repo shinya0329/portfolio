@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       # もし、すでにプロフィール画像が存在する場合は、そのプロフィール画像を再利用する
       @user.profile_image.attachment.blob = blob if blob.present?
       render :edit
-
+    end
   end
   
   private
