@@ -425,3 +425,42 @@ hr.divider {
   background-size: cover;
 }
 /*ここまで*/
+
+/*新規登録のCSS*/
+.bg-image-full-new {
+  background: url(photo2.jpg) no-repeat;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+}
+.post-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.6); 
+  height: 50vh
+}
+.form-control {
+  background-color:  #1E1E1F;
+  color: white;
+}
+.form-control:focus {
+  background-color:  #1E1E1F;
+}
+.shop-image {
+  display: inline;
+  width: 60%;
+  border: none;
+  padding: 0;
+  color: #fff;
+}
+select {
+  background-color:  #1E1E1F;
+  color: #fff;
+}
+.btn-info {
+  background-color:  #1E1E1F;
+
+}
+/*ここまで*/
