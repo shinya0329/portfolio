@@ -417,3 +417,11 @@ hr.divider {
   opacity: 1;
 }
 /*ここまで*/
+/*カテゴリー一覧画面のCSS*/
+.main-categorys {
+  height: 100%;
+  position: relative;
+  background: url("category_top.jpg") #2a5555 no-repeat center center scroll;
+  background-size: cover;
+}
+/*ここまで*/
