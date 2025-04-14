@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order(10)
+    @posts = Post.page(params[:page]).reverse_order
   end
 
   def categorys

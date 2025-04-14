@@ -315,3 +315,39 @@ hr.divider {
 
 
 /*ここまで*/
+
+/*投稿一覧画面のCSS*/
+.main-posts {
+  height: 100%;
+  position: relative;
+  background: url("photo8.jpg") #2a5555 no-repeat center center scroll;
+  background-size: cover;
+}
+
+.user-icon {
+    position: relative;
+    margin: -65px 0 25px 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+}
+
+.user-item:hover .user-icon {
+    color: #FFFFFF;
+    background: var(--primary);
+}
+
+.pagination {
+  justify-content: center;
+  background-color:  #1E1E1F;
+  padding-bottom: 5rem;
+  margin-bottom: 0;
+}
+
+.featured-text {
+  padding: 1rem 0 1rem 2rem;
+  border-left: 0.5rem solid white;
+}
+/*ここまで*/
