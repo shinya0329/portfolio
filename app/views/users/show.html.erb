@@ -1,16 +1,62 @@
-<div>
-  <h3><%= @user.name %></h3>
-  
-  <% if @user.profile_image.attached? %>
-    <%= image_tag @user.profile_image, size: "100x100" %>
-  <% else %>
-    <%= image_tag 'about_photo1.jpg', size: "100x100" %>
-  <% end %>
+<main>
 
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+  <div class="bg-image-full">
+    <div class="col-12 h-100 py-5" style="background-color: rgba(0,0,0,0.5);">
+      <div class="text-center my-5 py-5">
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image.variant(resize_to_fill: [150, 150]), class: "img-fluid rounded-circle mb-4" %>
+      <% else %>
+        <%= image_tag "default-image.jpg", width: 150, height: 150, class: "img-fluid rounded-circle mb-4" %>
+      <% end %>
+      
+        <h3 class="text-white fs-3 fw-bolder"><%= @user.name %></h3>
+        <!--直うち禁止にして-->
+        <%= link_to edit_user_path(@user), class:"btn btn-secondary w-25 " do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <div class="page-section text-light" style="background-color:  #1E1E1F;" >
+    <div class="container px-4 px-lg-5">
+      <h2 class="text-center mt-0">About My Page</h2>
+      <hr class="divider"/>
+      <p class="text-center text-white-50"><%= @user.introduction %></p>
+    </div>
+  </div>
 
-<%= render 'posts/list', posts: @posts %>
+  <div class="page-section text-light" style="background-color:  #1E1E1F;" >
+    <div class="container px-4 px-lg-5">
+      <h2 class="text-center mt-0">My posts</h2>
+      <hr class="divider"/>
+    </div>
+  </div>
+  <section class="page-section"  style="background-color:  #1E1E1F;">
+    <div class="container-xxl py-5">
+      <div class="container">
+      <h2 class="text-center text-light mt-0">Posts</h2>
+      <hr class="divider"/>
+        <div class="row mt-5 g-4">
+          <% @posts.each do |post| %>
+            <div class="col-sm-6 col-lg-4">
+                <div class="service-item rounded overflow-hidden mb-5 shadow" style="background-color:  black; color: #fff;">
+                    <%= attachment_image_tag post, :image, class:"w-100 overflow-hidden", style:"max-height: 200px;", fallback: "photo1.jpg" %>
+                    <div class="user-item position-relative p-3 pt-0">
+                        <h4 class="mb-3 shop-name"><%= post.shop_name %></h4>
+                        <p><%= post.caption %></p>
+                        <span><i class="fas fa-user"></i> Date: <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+                        <span><%= link_to "#{post.comments.count} コメント", post_path(post.id), class:"text-white" %></span></br>
+                        <%=link_to post_path(post.id), class:"small" do %>
+                          Read More<i class="fa fa-arrow-right ms-2"></i>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
