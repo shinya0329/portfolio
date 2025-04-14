@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/categorys', to: 'posts#categorys' #カテゴリー一覧ページへのルーティング
   get 'posts/category/:category', to: 'posts#category' #カテゴリー詳細ページへのルーティング
   
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
 
   resources :posts, only: [:new, :create, :index, :show, :destroy] do
     resources :post_comments, only: [:create, :destroy]
