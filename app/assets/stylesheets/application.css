@@ -143,11 +143,11 @@ hr.top-divider {
 
 .btn-Sign-Up {
   background-color: rgba(26, 237, 34, 0.6);
-  color: #fff;
+  color: white;
 }
 .btn-Sign-Up:hover {
   background-color: green;
-  color: #fff;
+  color: white;
 }
 .btn-Log-in {
   background-color: rgba(0, 102, 255, 0.6);
