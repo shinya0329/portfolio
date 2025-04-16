@@ -25,13 +25,7 @@
       <p class="text-center text-white-50"><%= @user.introduction %></p>
     </div>
   </div>
-
-  <div class="page-section text-light" style="background-color:  #1E1E1F;" >
-    <div class="container px-4 px-lg-5">
-      <h2 class="text-center mt-0">My posts</h2>
-      <hr class="divider"/>
-    </div>
-  </div>
+  
   <section class="page-section"  style="background-color:  #1E1E1F;">
     <div class="container-xxl py-5">
       <div class="container">
@@ -41,13 +35,9 @@
           <% @posts.each do |post| %>
             <div class="col-sm-6 col-lg-4">
                 <div class="service-item rounded overflow-hidden mb-5 shadow" style="background-color:  black; color: #fff;">
-                    <% if post.image.attached? %>
-                      <%= image_tag post.image.variant(resize_to_limit: [400, 200]), class: "w-100 overflow-hidden", style: "max-height: 200px;" %>
-                    <% else %>
-                      <%= image_tag "photo1.jpg", class: "w-100 overflow-hidden", style: "max-height: 200px;" %>
-                    <% end %>
+                    <%= image_tag(post.image.attached? ? url_for(post.image) : "photo1.jpg", class: "w-100 overflow-hidden", style: "max-height: 200px;") %>
                     <div class="user-item position-relative p-3 pt-0">
-                        <h4 class="mb-3 shop-name"><%= post.shop_name %></h4>
+                        <h4 class="mt-4 mb-3 shop-name"><%= post.shop_name %></h4>
                         <p><%= post.caption %></p>
                         <span><i class="fas fa-user"></i> Date: <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
                         <span><%= link_to "#{post.post_comments.count} コメント", post_path(post.id), class:"text-white" %></span></br>
