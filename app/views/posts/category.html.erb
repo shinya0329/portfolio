@@ -1,9 +1,11 @@
 <% if @category == "JapaneseFood" %>
-
+和食ページの部分テンプレート
   <%= render 'posts/japanesefood', posts: @posts %>
 
 <% elsif @category == "WesternCuisine" %>
-  <h1>West</h1>
+
+  <%= render 'posts/WesternCuisine', posts: @posts %>
+
 <% elsif @category == "ChineseFood" %>
   <h1>Chinese</h1>
 <% elsif @category == "AsianFood" %>

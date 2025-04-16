@@ -433,7 +433,7 @@ hr.divider {
   background-size: cover;
 }
 /*ここまで*/
-/*japanesefoodの*/
+/*japanesefoodのCSS*/
 .japanesefood {
   height: 100%;
   position: relative;
@@ -441,6 +441,15 @@ hr.divider {
   background-size: cover;
 }
 /*ここまで*/
+/*WesternCuisianのCSS*/
+.japanesefood {
+  height: 100%;
+  position: relative;
+  background: url("category-western.jpg") #2a5555 no-repeat center center scroll;
+  background-size: cover;
+}
+/*ここまで*/
+
 
 /*新規登録のCSS*/
 .bg-image-full-new {
