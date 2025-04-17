@@ -1,15 +1,19 @@
 <% if @category == "JapaneseFood" %>
-和食ページの部分テンプレート
+<!--和食ページの部分テンプレート-->
   <%= render 'posts/japanesefood', posts: @posts %>
 
 <% elsif @category == "WesternCuisine" %>
-
+<!--洋食料理の部分テンプレート-->
   <%= render 'posts/WesternCuisine', posts: @posts %>
 
 <% elsif @category == "ChineseFood" %>
-  <h1>Chinese</h1>
+<!--中華料理の部分テンプレート-->
+  <%= render 'posts/chinese', posts: @posts %>
+
 <% elsif @category == "AsianFood" %>
-  <h1>Asia</h1>
+
+  <%= render 'posts/asianFood', posts: @posts %>
+  
 <% elsif @category == "Curry" %>
   <h1>Curry</h1>
 <% elsif @category == "Meat" %>
