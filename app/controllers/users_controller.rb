@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
   
   def index
     @users = User.all.page(params[:page]).reverse_order
@@ -22,6 +23,14 @@ class UsersController < ApplicationController
       # もし、すでにプロフィール画像が存在する場合は、そのプロフィール画像を再利用する
       @user.profile_image.attachment.blob = blob if blob.present?
       render :edit
+    end
+  end
+  
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      flash[:alert] = "不正なアクセスです。"
+      redirect_to posts_path
     end
   end
   
