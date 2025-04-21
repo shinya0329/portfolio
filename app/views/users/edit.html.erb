@@ -15,11 +15,23 @@
   <div class="container px-4 px-lg-5">
     <h2 class="text-center mt-0">Edit your profile</h2>
     <hr class="divider mb-5"/>
-    
+
+      <!--バリデーションの設定-->
+      <div style="color: red;">
+        <% if @user.errors.any? %>
+          <h3 ><%= @user.errors.count %>件のエラーが発生しました</h3>
+          <ul style="list-style: none;">
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        <% end %>      
+      </div>
+      
     <%= form_with model:@user, local:true do |f| %>
       <div class="form-group mt-3">
         <label for="inputName">Name</label>
-        <%= f.text_field :name, class:"form-control", autofocus: true, id:"inputName", placeholder:"～文字以上"%>
+        <%= f.text_field :name, class:"form-control", autofocus: true, id:"inputName", placeholder:"名前を入力してください"%>
       </div>
       <div class="form-group mb-3">
         <label for="input-introduction">Introduction</label>
