@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+before_action :authorize_user!, only: [:edit, :update, :destroy]
+
 
   def new
     @post = Post.new
@@ -72,6 +74,14 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:shop_name, :image, :caption, :image_id, :category)
+  end
+
+  # 投稿者以外はリダイレクト
+  def authorize_user!
+    unless @post.user == current_user
+      flash[:alert] = "アクセス権限がありません。"
+      redirect_to posts_path
+    end
   end
 
 end
