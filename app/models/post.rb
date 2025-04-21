@@ -9,7 +9,9 @@ class Post < ApplicationRecord
    
    validates :shop_name, presence: true
    validates :image, attached: true, content_type: ['image/png', 'image/jpeg'], size: { between: 1.kilobyte..1.megabytes , message: '画像容量が大きすぎます。1MB以下にしてください。' }
+   validates :caption, presence: true
 
+   
    def favorited_by?(user)
       favorites.where(user_id: user.id).exists?
    end
