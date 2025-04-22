@@ -113,6 +113,16 @@ hr.footer-divider {
   background-color: #fff;
   opacity: 1;
 }
+
+.social-icons a {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.5);
+  color: #ffcc00;
+}
+
 /*ここまで*/
 
 /*ここからTop画面のCSS*/
@@ -126,13 +136,24 @@ hr.footer-divider {
 .site-name {
   font-family: "Pinyon Script", cursive;
   font-size: calc(5rem + 2vw);
+  animation: fadeInDown 2s ease;
 }
 .my-name {
   font-family: "Pinyon Script", cursive;
   font-size: 2rem;
-
-  
+  animation: fadeInUp 2s ease;
 }
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 hr.top-divider {
   height: 0.1rem;
   width: 100%;
@@ -157,6 +178,7 @@ hr.top-divider {
   background-color: blue;
   color: #fff;
 }
+
 /*ここまで*/
 
 /*ここからabout画面のCSS*/

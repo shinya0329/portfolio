@@ -1,27 +1,27 @@
 <main class="text-white py-5" style="background-color:  #1E1E1F;">
   <div class="container">
-    <div class="card bg-black text-white shadow-lg mb-5">
+    <div class="card text-white shadow-lg mb-5" style="backgroud-color: black;">
       <div class="row g-0">
-        <div class="col-md-6">
+        <div class="col-md-6 g-0" style="background-color: black;">
           <% if @post.image.attached? %>
             <%= image_tag @post.image, class: "img-fluid h-100 w-100 object-fit-cover" %>
           <% else %>
             <%= image_tag "about_photo1.jpg", class: "img-fluid h-100 w-100 object-fit-cover" %>
           <% end %>
         </div>
-        <div class="col-md-6 p-4">
+        <div class="col-md-6 p-4 g-0" style="background-color: black;">
           <h2 class="card-title mb-3"><%= @post.shop_name %></h2>
           <p class="card-text"><%= @post.caption %></p>
 
           <hr class="bg-secondary">
 
-          <div class="d-flex align-items-center mb-3">
+          <div class="d-flex align-items-center mb-3 mr-1">
             <% if @post.user.profile_image.attached? %>
               <%= image_tag @post.user.profile_image, size: "60x60", class: "rounded-circle me-3" %>
             <% else %>
-              <%= image_tag "about_photo1.jpg", size: "60x60", class: "rounded-circle me-3" %>
+              <%= image_tag "user-top.jpg", size: "60x60", class: "rounded-circle me-3" %>
             <% end %>
-            <div>
+            <div class="ml-2">
               <p class="mb-1 fw-bold"><%= @post.user.name %></p>
               <small class="text-muted">投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></small>
             </div>
