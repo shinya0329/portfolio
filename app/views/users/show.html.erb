@@ -19,14 +19,19 @@
       </div>
     </div>
   </div>
-
-  <div class="page-section text-light" style="background-color:  #1E1E1F;" >
+  
+  <div class="page-section text-light" style="background-color: #1E1E1F;">
     <div class="container px-4 px-lg-5">
-      <h2 class="text-center mt-0">About My Page</h2>
-      <hr class="divider"/>
-      <p class="text-center text-white-50"><%= @user.introduction %></p>
+      <h2 class="text-center display-5 fw-bold text-white mb-4">About My Page</h2>
+      <hr class="divider" />
+      <div class="mx-auto p-5 rounded-4 shadow glass-card" style="max-width: 720px;">
+        <p class="text-center text-white fs-4 lh-lg fw-medium mb-0" style="font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;">
+          <%= @user.introduction.presence || "まだ自己紹介が設定されていません。" %>
+        </p>
+      </div>
     </div>
   </div>
+
   <!--部分テンプレートの呼び出し-->
   <%= render 'posts/list', posts: @posts %>
   
