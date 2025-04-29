@@ -18,7 +18,11 @@ before_action :authorize_user!, only: [:edit, :update, :destroy]
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
+     if params[:keyword].present?
+      @posts = Post.where("name LIKE ? OR description LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    else
+      @posts = Post.page(params[:page]).reverse_order
+    end
   end
 
   def categorys

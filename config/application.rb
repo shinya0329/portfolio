@@ -3,6 +3,8 @@
 require_relative 'boot'
 
 require "rails"
+
+require "logger"  
 # 必要なRailsフレームワークを追加
 require "active_model/railtie"
 require "active_record/railtie"

@@ -13,17 +13,19 @@
 <% elsif @category == "AsianFood" %>
 <!--アジア料理の部分テンプレート-->
   <%= render 'posts/asianFood', posts: @posts %>
-  
+
 <% elsif @category == "Curry" %>
 <!--カレー料理の部分テンプレート-->
   <%= render 'posts/curry', posts: @posts %>
-  
+
 <% elsif @category == "Meat" %>
 
   <%= render 'posts/curry', posts: @posts %>
-  
+
 <% elsif @category == "Drink" %>
-  <h1>Drinl</h1>
+
+  <%= render 'posts/Drink', posts: @posts %>
+
 <% elsif @category == "Cafe" %>
   <h1>cafe</h1>
 <% elsif @category == "Sweets" %>
