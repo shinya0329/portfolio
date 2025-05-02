@@ -66,7 +66,8 @@ gem 'image_processing', '~> 1.2'
 
 gem 'activesupport', '6.1.7.10'
 
-gem 'mysql2', '>= 0.4.4', '< 0.6.0' , group: :production
-
 gem 'uglifier'
 
+group :production do
+  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+end
